@@ -18,7 +18,7 @@ Prérequis :
 
 Installation manuelle :
 1. Clonez le dépôt :
-   git clone https://github.com/votre-username/assistant-ia-extension.git
+   git clone https://github.com/gabrieldrdt/Extension-Ia.git
    cd assistant-ia-extension
 
 2. Configurez votre clé API :
@@ -77,7 +77,7 @@ Licence MIT - voir le fichier LICENSE
 
 Contact
 -------
-Pour les problèmes, ouvrez un ticket sur https://github.com/votre-username/assistant-ia-extension/issues
+Pour les problèmes, ouvrez un ticket sur https://github.com/gabrieldrdt
 
 ---
 Fait avec ❤️ pour les passionnés d'IA
