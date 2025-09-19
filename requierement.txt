@@ -1,0 +1,48 @@
+# Prérequis pour l'extension ASSISTANT IA Chrome
+
+# Navigateur
+- Google Chrome 88+ (ou navigateurs compatibles comme Microsoft Edge 88+, Brave 1.30+)
+
+# API
+- Clé API OpenAI (inscription sur https://platform.openai.com/)
+  - Format : sk-proj-XXXXXXXXXXXXXXXX
+  - Utilisée dans popup.js pour les appels API
+
+# Permissions
+- Permissions Chrome :
+  - activeTab : Accès à l'onglet courant
+  - storage : Stockage local pour les paramètres
+  - clipboardWrite : Fonctionnalité de copie (optionnelle)
+  - Hôte : https://api.openai.com/*
+
+# Dépendances de développement
+- Aucune bibliothèque JavaScript externe requise (utilise JavaScript vanilla)
+- APIs natives :
+  - fetch() pour les requêtes HTTP
+  - chrome.storage pour le stockage local
+  - JSON pour le parsing des réponses
+
+# Stockage
+- Stockage local : ~50KB (clé API, préférences)
+- Taille totale de l'extension : ~28KB
+
+# Notes de sécurité
+- Ne jamais commiter les clés API dans le contrôle de version
+- Utiliser .gitignore pour les fichiers sensibles
+- Valider la clé API pour gérer les erreurs 401
+
+# Tests requis
+- Tests manuels :
+  - Connexion API avec clé valide
+  - Gestion des erreurs de limitation de taux (429)
+  - Affichage des réponses longues
+  - Compatibilité navigateur
+- Outils de développement optionnels :
+  - VS Code avec extensions : Chrome Extension Reloader, Web Extension
+  - Jest ou Puppeteer pour les tests automatisés (non inclus par défaut)
+
+# Déploiement
+- Exigences Chrome Web Store :
+  - Extension zippée : < 10MB
+  - Icônes : 16x16, 48x48, 128x128 PNG
+  - Description : < 132 caractères
