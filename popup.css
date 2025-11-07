@@ -18,7 +18,7 @@ html, body {
   height: 95%;
   border-radius: 20px;
   overflow: hidden;
-  background: url("images/assistantia3.png") center/cover no-repeat;
+  background: url("assistantia3.png") center/cover no-repeat;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
   animation: move-bg 25s ease-in-out infinite;
   background-size: 200% 200%;
