@@ -3,18 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="popup.css" />
     <title>Assistant IA</title>
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <div id="container">
-      <div id="header">
-        <h1>ASSISTANT <span>IA</span></h1>
-      </div>
-      <textarea id="question" placeholder="Pose ta question ici..."></textarea>
-      <button id="send-button">ENVOYER</button>
-      <div id="response" class="response-box">
-        <p>Réponse de l'IA ici</p>
+    <div class="container">
+      <div class="inner">
+        <h1>ASSISTANT IA</h1>
+
+        <details class="apikey">
+          <summary>Configurer la clé OpenAI</summary>
+          <div class="apikey-row">
+            <input id="api-key-input" type="password" placeholder="sk-..." />
+            <button id="save-key-button" class="secondary">Sauvegarder</button>
+          </div>
+          <p class="hint">La clé est stockée localement via chrome.storage.sync.</p>
+        </details>
+
+        <label for="question" class="label">Ta question</label>
+        <textarea id="question" placeholder="Pose ta question ici..."></textarea>
+
+        <button id="send-button">Envoyer</button>
+
+        <label class="label">Réponse</label>
+        <div id="response">Réponse de l'IA ici</div>
       </div>
     </div>
     <script src="popup.js"></script>

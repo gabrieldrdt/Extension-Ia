@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Assistant IA Résumeur",
+  "version": "1.0",
+  "description": "Extension Chrome qui résume ou répond à vos questions grâce à une IA intégrée.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "images/assistantia3.png"
+    }
+  },
+  "icons": {
+    "128": "images/assistantia3.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

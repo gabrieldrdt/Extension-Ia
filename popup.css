@@ -1,110 +1,282 @@
-html,
-body {
+html, body {
+  width: 420px;
+  height: 600px;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
+  background: transparent;
+  font-family: "Inter", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  overflow: hidden;
 }
 
-#container {
-  width: 350px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
+.container {
+  position: relative;
+  width: 95%;
+  height: 95%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: url("images/assistantia3.png") center/cover no-repeat;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  animation: move-bg 25s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes move-bg {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+  padding: 20px 18px;
   box-sizing: border-box;
+  gap: 12px;
 }
 
-h2,
-#header h1 {
-  font-size: 2em;
-  color: #1b6ca8;
+h1 {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff, #a8dcff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.2px;
   margin: 0;
+  text-shadow: 0 2px 10px rgba(168, 220, 255, 0.3);
 }
 
-#header h1 {
-  margin-bottom: 20px;
+.apikey {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 4px;
 }
 
-#header h1 span {
-  font-size: 1em;
-  color: #333;
+.apikey summary {
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.apikey summary:hover {
+  color: #a8dcff;
+}
+
+.apikey-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.apikey input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.apikey input:focus {
+  border-color: #00bfff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.apikey .hint {
+  font-size: 0.8em;
+  color: #ccc;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 8px 16px !important;
+  font-size: 0.9em !important;
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.label {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+  display: block;
 }
 
 textarea {
-  width: 310px;
+  flex: none;
+  width: 100%;
   height: 80px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  border: 2px solid #1b6ca8;
-  border-radius: 10px;
-  padding: 5px;
-  box-sizing: border-box;
+  resize: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  padding: 12px;
+  font-size: 0.9em;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+textarea:focus {
+  border-color: #00bfff;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.1);
+}
+
+textarea::placeholder {
+  color: #bbb;
 }
 
 button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  background-color: #1b6ca8;
-  color: white;
+  flex: none;
+  background: linear-gradient(135deg, #00bfff, #0078d7);
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.95em;
+  padding: 12px 0;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 }
 
 button:hover {
-  background-color: #145a82;
+  background: linear-gradient(135deg, #0095ff, #005fc1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 191, 255, 0.4);
 }
 
-.response-box {
-  margin-top: 20px;
-  border: 2px solid #1b6ca8;
-  border-radius: 10px;
-  padding: 10px;
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#response {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  font-size: 0.85em;
+  line-height: 1.5em;
+  overflow-y: auto;
+  color: #f0f0f0;
   min-height: 100px;
-  font-size: 14px;
-  color: #333;
-  background-color: #f1f1f1;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+#response:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+#response::-webkit-scrollbar {
+  width: 8px;
+}
+
+#response::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+#response::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+#response::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+* {
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-footer {
-  margin-top: 20px;
-  font-size: 0.9em;
-  color: #666;
+.container {
+  animation: fadeInUp 0.6s ease-out;
 }
 
-#container {
-  width: 350px;
-
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-body {
-  background-image: url("./image/assistantia3.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+input:focus,
+textarea:focus {
+  transform: scale(1.02);
 }
 
-#container {
-  position: relative;
-  z-index: 1;
+@media (max-width: 480px) {
+  html, body {
+    width: 380px;
+    height: 560px;
+  }
+  
+  .inner {
+    padding: 16px 14px;
+    gap: 10px;
+  }
+  
+  h1 {
+    font-size: 1.2em;
+  }
 }
